@@ -283,7 +283,15 @@ public class GUI extends Application
 			public void handle(ActionEvent event) {
 				String num=cardNo.getText();
 				if(num.length()==0 || num==null)
-					validationLabel.setText("Invalid entry");
+					{
+						validationLabel.setText("Invalid entry");
+						cardNo.setText("");
+					}
+				else if(!num.matches(".*\\d.*"))
+					{
+						validationLabel.setText("Invalid entry");
+						cardNo.setText("");
+					}
 				else if(user.validation(num))
 						window.setScene(scene2);
 				else
@@ -391,7 +399,15 @@ public class GUI extends Application
 			public void handle(ActionEvent event) {
 				String num2=depositField.getText();
 				if(num2.length()==0 || num2==null)
-					confirmationLabel.setText("Invalid entry");
+					{
+						confirmationLabel.setText("Invalid entry");
+						depositField.setText("");
+					}
+				else if(!num2.matches(".*\\d.*"))
+					{
+						confirmationLabel.setText("Invalid entry");
+						depositField.setText("");
+					}
 				else if(user.deposit(num2)==1)
 						{ 
 							confirmationLabel.setText("Invalid deposit");
@@ -502,7 +518,15 @@ public class GUI extends Application
 			public void handle(ActionEvent event) {
 				String num3=withdrawField.getText();
 				if(num3.length()==0 || num3==null)
-					confirmationLabel2.setText("Invalid entry.");
+					{
+						confirmationLabel2.setText("Invalid entry.");
+						withdrawField.setText("");
+					}
+				else if(!num3.matches(".*\\d.*"))
+					{
+						confirmationLabel2.setText("Invalid entry");
+						withdrawField.setText("");
+					}
 				else if(user.withdrawal(num3)==0)
 					confirmationLabel2.setText("Withdrawal confirmed.");
 				else 
